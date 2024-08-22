@@ -4,7 +4,7 @@ import React from "react";
 
 
 
-function P404() {
+export default function P404() {
 
     return (
         <>
@@ -18,5 +18,3 @@ function P404() {
         </>
     );
 }
-
-export default P404;
