@@ -16,7 +16,7 @@ export default function ListProjets() {
     return (
         <>
             <div className="py-20">
-                <div className="flex flex-col gap-28 items-center">
+                <div className="flex flex-col gap-28 items-center pb-10 border-b-4 dark:border-white border-black">
                     <h1 className="text-5xl text-cyan-600 font-bold">Listes des projets</h1>
                 </div>
                 <div className="flex flex-col max-md:items-center md:flex-row md:justify-center md:flex-wrap md:rounded-xl my-6 md:p-16 2xl:py-10 gap-y-5 md:gap-y-[50px] md:gap-x-[60px] px-5 md:px-20">

@@ -10,23 +10,14 @@ const ProjetRedirect = () => {
 
     useEffect(() => {
         if (!projet) {
-            navigate('/404');
+            navigate('/404', { replace: true });
+        } else {
+            window.open(projet.url, '_blank');
+            navigate('/projets', { replace: true }); 
         }
     }, [projet, navigate]);
 
-    if (!projet) {
-        return null;
-    }
-
-    return (
-        <div style={{ width: '100%', height: '100vh' }}>
-            <iframe
-                src={projet.url}
-                style={{ width: '100%', height: '100%', border: 'none' }}
-                title={`Projet ${id}`}
-            />
-        </div>
-    );
+    return null;
 };
 
 export default ProjetRedirect;
