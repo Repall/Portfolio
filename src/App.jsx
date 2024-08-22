@@ -6,7 +6,7 @@ export default function App() {
     return (
         <>
             <Header />
-            <main>
+            <main className="lg:mx-10 xl:mx-20">
                 <Outlet />
             </main>
             {/* <Footer /> */}
