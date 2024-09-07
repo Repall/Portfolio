@@ -1,32 +1,94 @@
+import React from "react";
 import { NavLink } from "react-router-dom";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Switch } from "@nextui-org/react";
+// import MoonIcon from "../assets/moonicon.svg";
+// import SunIcon from "../assets/sunicon.svg";
+import { MoonIcon } from "./MoonIcon";
+import { SunIcon } from "./SunIcon";
+
+import routerData from "../assets/router.json"
 
 export default function Header() {
-    return (
-        <>
-            <header className="bg-slate-700 text-white flex flex-col lg:flex-row lg:justify-around max-lg:gap-20 items-center p-7">
-                <div class="flex flex-col gap-5 lg:gap-10 text-center">
-                    <h1 class="text-7xl font-bold uppercase">REPALL.FR</h1>
-                </div>
-                <nav className="flex flex-row justify-center items-center text-2xl">
-                    <ul className="flex flex-row items-center lg:flex lg:flex-row gap-10 max-lg:text-2xl ">
-                        <li className="">
-                            <NavLink to="/" className={({ isActive }) => (isActive ? "bg-cyan-600 px-3 py-2 rounded-xl " : "hover:text-cyan-600 duration-500 cursor-pointer px-3 py-2 ")}>
-                                Accueil
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/projets" className={({ isActive }) => (isActive ? "bg-cyan-600 px-3 py-2 rounded-xl " : "hover:text-cyan-600 duration-500 cursor-pointer px-3 py-2")}>
-                                Projets
-                            </NavLink>
-                        </li>
-                        {/* <li>
-                            <NavLink to="/a-propos" className={({ isActive }) => (isActive ? "bg-cyan-600 p-2 rounded-xl " : "hover:text-cyan-600 duration-500 cursor-pointer p-2")}>
-                                À Propos
-                            </NavLink>
-                        </li> */}
-                    </ul>
-                </nav>
-            </header>
-        </>
-    );
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const menuItems = [
+    "Profile",
+    "Dashboard",
+    "Activity",
+    "Analytics",
+    "System",
+    "Deployments",
+    "My Settings",
+    "Team Settings",
+    "Help & Feedback",
+    "Log Out",
+  ];
+
+  return (
+    <>
+      <header className="flex flex-col lg:flex-row lg:justify-around max-lg:gap-20 items-center p-7">
+        <Navbar onMenuOpenChange={setIsMenuOpen}>
+          <NavbarContent>
+            <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="sm:hidden" />
+            <NavbarBrand>
+              <p className="font-bold text-inherit text-3xl uppercase">Repall.fr</p>
+            </NavbarBrand>
+          </NavbarContent>
+          <NavbarContent className="hidden sm:flex gap-4" justify="center">
+            {routerData.map(item => (
+              <NavbarItem key={item.id} className="text-xl">
+              <NavLink
+                to={item.route}
+                className={({ isActive }) =>
+                  isActive ? "bg-primary px-3 py-2 rounded-xl " : "hover:text-primary duration-500 cursor-pointer px-3 py-2"
+                }
+              >
+                {item.name}
+              </NavLink>
+            </NavbarItem>
+            ))}
+            {/* <NavbarItem>
+              <NavLink
+                to="/a-propos"
+                className={({ isActive }) =>
+                  isActive ? "bg-primary p-2 rounded-xl " : "hover:text-primary duration-500 cursor-pointer p-2"
+                }
+              >
+                À Propos
+              </NavLink>
+            </NavbarItem> */}
+            {/* <NavbarItem>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? "bg-primary p-2 rounded-xl " : "hover:text-primary duration-500 cursor-pointer p-2"
+                }
+              >
+                Contact
+              </NavLink>
+            </NavbarItem> */}
+          </NavbarContent>
+          {/* <NavbarContent justify="end">
+            <NavbarItem className="hidden lg:flex">
+              <Switch defaultSelected size="lg" color="primary"  startContent={<MoonIcon />} endContent={<SunIcon />}></Switch>
+            </NavbarItem>
+          </NavbarContent> */}
+          <NavbarMenu className="pt-16 w-full">
+            {routerData.map((item) => (
+              <NavbarMenuItem key={item}>
+                <NavLink
+                to={item.route}
+                className={({ isActive }) =>
+                  isActive ? "bg-primary px-3 py-2 rounded-xl " : ""
+                }
+              >
+                {item.name}
+              </NavLink>
+              </NavbarMenuItem>
+            ))}
+          </NavbarMenu>
+        </Navbar>
+      </header>
+    </>
+  );
 }

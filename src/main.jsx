@@ -1,14 +1,17 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { NextUIProvider } from "@nextui-org/react";
+
 import "./index.css";
 import App from "./App.jsx";
 
 import Home from "./pages/Home";
 import P404 from "./pages/P404";
 import ListProjets from "./pages/ListProjets";
+import APropos from "./pages/APropos.jsx";
+import Contact from "./pages/Contact.jsx";
 
-import ProjetRedirect from "./components/ProjetsRedirect.jsx";
 import { ProjetsProvider } from "./components/GetProjet";
 
 const router = createBrowserRouter([
@@ -21,12 +24,20 @@ const router = createBrowserRouter([
             },
             {
                 path: "projets",
-                element: <ListProjets />,
+                element: (
+                    <ProjetsProvider>
+                        <ListProjets />
+                    </ProjetsProvider>
+                ),
             },
-            {
-                path: "projet/:id",
-                element: <ProjetRedirect />,
-            },
+            // {
+            //     path: "a-propos",
+            //     element: <APropos />,
+            // },
+            // {
+            //     path: "contact",
+            //     element: <Contact />,
+            // },
             {
                 path: "*",
                 element: <P404 />,
@@ -37,8 +48,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <ProjetsProvider>
+        <NextUIProvider>
             <RouterProvider router={router} />
-        </ProjetsProvider>
+        </NextUIProvider>
     </React.StrictMode>
 );
