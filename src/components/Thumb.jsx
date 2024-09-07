@@ -21,12 +21,14 @@ export default function Thumb() {
           className="flex flex-col-reverse w-[335px] h-[255px] max-sm:w-64 rounded-xl transition duration-700 hover:scale-105 cursor-pointer"
         >
           {projet ? (
-            projet.number && projet.title ? (
-              <p className="z-50 absolute bg-primary-300 text-lg font-bold rounded-b-xl w-[335px] max-sm:w-64 px-5 py-2">
+            projet.title ? (
+              <p className="z-10 absolute bg-primary-300 text-lg font-bold rounded-b-xl w-[335px] max-sm:w-64 px-5 py-2">
                 Projet {projet.number} | {projet.title}
               </p>
             ) : (
-              <p className="z-50 absolute bg-danger text-lg font-bold rounded-b-xl w-[335px] max-sm:w-64 px-5 py-2">Projet {projet.number} non démarré...</p>
+              <p className="z-10 absolute bg-danger text-lg font-bold rounded-b-xl w-[335px] max-sm:w-64 px-5 py-2">
+                Projet {projet.number} non démarré...
+              </p>
             )
           ) : null}
 
@@ -46,13 +48,30 @@ export default function Thumb() {
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         size="5xl"
+        placement="center"
       >
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="justify-center text-4xl">{selectedProjet.title}</ModalHeader>
-              <ModalBody className="flex flex-row-reverse">
-                <div className="flex flex-col justify-evenly w-1/2 text-center items-center ">
+              <ModalHeader className="flex flex-col justify-center text-center text-2xl md:text-4xl">
+                <p>{selectedProjet.title}</p>
+                <p className="text-lg font-normal flex flex-col sm:flex-row  justify-center items-center gap-4">
+                  {selectedProjet.theme}
+                  {selectedProjet ? (
+                    selectedProjet.responsive === true ? (
+                      <Button color="success" variant="shadow" className="cursor-default">
+                        Responsive
+                      </Button>
+                    ) : selectedProjet.responsive === false ? (
+                      <Button color="danger" variant="shadow" className="cursor-default">
+                        Non responsive
+                      </Button>
+                    ) : null
+                  ) : null}
+                </p>
+              </ModalHeader>
+              <ModalBody className="flex flex-col-reverse md:flex-row-reverse">
+                <div className="flex flex-col justify-evenly md:w-1/2 max-sm:pt-6 max-md:mt-6 max-md:gap-10 max-sm:border-t-8 sm:border-x-8 sm:rounded-full md:px-7 text-center items-center ">
                   {selectedProjet ? (
                     selectedProjet.description ? (
                       <p>{selectedProjet.description}</p>
@@ -70,7 +89,7 @@ export default function Thumb() {
                       selectedProjet.techonologie.length > 0 ? (
                         <>
                           <p className="underline">Technologies utilisées :</p>
-                          <div className="flex flex-row gap-2 pt-3">
+                          <div className="flex flex-row flex-wrap justify-center gap-2 pt-3">
                             {Array.isArray(selectedProjet.techonologie)
                               ? selectedProjet.techonologie.map((item, index) => {
                                   return (
@@ -84,7 +103,8 @@ export default function Thumb() {
                                       {item}
                                     </Button>
                                   );
-                                }): null}
+                                })
+                              : null}
                           </div>
                         </>
                       ) : null
@@ -93,14 +113,13 @@ export default function Thumb() {
                 </div>
                 {selectedProjet ? (
                   selectedProjet.image ? (
-                    <img className="h-full w-1/2 object-cover rounded-xl" src={selectedProjet.image} alt="Image aperçu projet" />
+                    <img className="h-full md:w-1/2 object-cover rounded-xl" src={selectedProjet.image} alt="Image aperçu projet" />
                   ) : (
-                    <Skeleton className="h-64 w-1/2 rounded-xl"></Skeleton>
+                    <Skeleton className="h-64 md:w-1/2 rounded-xl"></Skeleton>
                   )
                 ) : null}
-                {/* <img className="h-full w-1/2 object-cover rounded-xl" src={selectedProjet.image} alt="Image du projet" /> */}
               </ModalBody>
-              <ModalFooter className="flex flex-row justify-evenly">
+              <ModalFooter className="flex flex-col md:flex-row justify-evenly">
                 {selectedProjet ? (
                   selectedProjet.github ? (
                     <Button color="primary" variant="shadow" onClick={() => window.open(selectedProjet.github, "_blank")}>
