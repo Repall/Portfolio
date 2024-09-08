@@ -1,102 +1,120 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
+import { Input, Textarea } from "@nextui-org/react";
 
-export default function () {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        phone: "",
-        message: "",
-    });
+export default function ContactForm() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [description, setDescription] = useState("");
 
-    const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value,
-        });
-    };
+  const validateName = (value) => value.match(/^[a-zA-ZÀ-ÿ\s'-]+$/);
+  const isNameInvalid = useMemo(() => {
+    return name !== "" && !validateName(name);
+  }, [name]);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Gestion de l'envoi du formulaire
-        console.log("Form submitted:", formData);
-    };
+  const validatePhone = (value) => value.match(/^[0-9]{10}$/);
+  const isPhoneInvalid = useMemo(() => {
+    return phone !== "" && !validatePhone(phone);
+  }, [phone]);
 
-    return (
-        <div className="flex flex-col items-center justify-center gap-10 py-10 md:py-20">
-            <h1 className="text-6xl md:text-8xl text-cyan-600 font-bold">Contact</h1>
-            <p>N'hésitez pas à me contacter pour discuter de votre projet.</p>
-            <form className="flex flex-col rounded w-4/5 lg:w-3/5 gap-6" onSubmit={handleSubmit}>
-                <div className="flex flex-col gap-3 mb-4">
-                    <label htmlFor="name" className="block text-white">
-                        Nom *
-                    </label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="DeadPool"
-                        value={formData.name}
-                        onChange={handleChange}
-                        className="bg-gray-600 mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-cyan-600"
-                        required
-                    />
-                </div>
+  const validateEmail = (value) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i);
+  const isEmailInvalid = useMemo(() => {
+    return email !== "" && !validateEmail(email);
+  }, [email]);
 
-                <div className="flex flex-col gap-3 mb-4">
-                    <label htmlFor="email" className="block text-white">
-                        Email *
-                    </label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="deadpool@xforce.com"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="bg-gray-600 mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-cyan-600"
-                        required
-                    />
-                </div>
+  const minDescriptionLength = 20;
+  const isDescriptionTooShort = useMemo(() => {
+    return description !== "" && description.length < minDescriptionLength;
+  }, [description]);
 
-                <div className="flex flex-col gap-3 mb-4">
-                    <label htmlFor="phone" className="block text-white">
-                        Téléphone *
-                    </label>
-                    <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        placeholder="0606060606"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="bg-gray-600 mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-cyan-600"
-                        required
-                    />
-                </div>
-
-                <div className="flex flex-col gap-3 mb-6">
-                    <label htmlFor="message" className="block text-white">
-                        Message *
-                    </label>
-                    <textarea
-                        id="message"
-                        name="message"
-                        placeholder="Votre message..."
-                        value={formData.message}
-                        onChange={handleChange}
-                        className="bg-gray-600 mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-cyan-600"
-                        rows="4"
-                        required
-                    ></textarea>
-                </div>
-
-                <button
-                    type="submit"
-                    className="self-center uppercase bg-cyan-600 text-white py-2 px-10 rounded-lg hover:bg-cyan-400 focus:outline-none focus:bg-indigo-600"
-                >
-                    Envoyer
-                </button>
-            </form>
+  return (
+    <div className="flex flex-col items-center justify-center gap-10 py-10 md:py-20">
+      <h1 className="text-6xl md:text-8xl text-cyan-600 font-bold">Contact</h1>
+      <p>N'hésitez pas à me contacter pour discuter de votre projet.</p>
+      <form className="flex flex-col rounded w-4/5 lg:w-3/5 gap-6">
+        
+        {/* Champ Nom */}
+        <div className="flex flex-col gap-3 mb-4">
+          <Input
+            isRequired
+            type="text"
+            label="Nom"
+            placeholder="DeadPool"
+            labelPlacement="outside"
+            startContent={<i className="fa-solid fa-user text-2xl text-default-400 pointer-events-none flex-shrink-0"></i>}
+            value={name}
+            onValueChange={setName}
+            isInvalid={isNameInvalid}
+            color={isNameInvalid ? "danger" : undefined}
+            errorMessage={isNameInvalid && "Le nom ne doit contenir que des lettres, des espaces ou des tirets !"}
+            size="lg"
+          />
         </div>
-    );
+
+        {/* Champ Email */}
+        <div className="flex flex-col gap-3 mb-4">
+          <Input
+            isRequired
+            type="email"
+            label="Email"
+            placeholder="deadpool@xforce.com"
+            labelPlacement="outside"
+            startContent={<i className="fa-solid fa-envelope text-2xl text-default-400 pointer-events-none flex-shrink-0"></i>}
+            value={email}
+            onValueChange={setEmail}
+            isInvalid={isEmailInvalid}
+            color={isEmailInvalid ? "danger" : undefined}
+            errorMessage={isEmailInvalid && "Merci d'entrer une adresse mail valide !"}
+            size="lg"
+          />
+        </div>
+
+        {/* Champ Téléphone */}
+        <div className="flex flex-col gap-3 mb-4">
+          <Input
+            isRequired
+            type="tel"
+            label="Téléphone"
+            placeholder="0606060606"
+            labelPlacement="outside"
+            startContent={<i className="fa-solid fa-phone text-2xl text-default-400 pointer-events-none flex-shrink-0"></i>}
+            value={phone}
+            onValueChange={setPhone}
+            isInvalid={isPhoneInvalid}
+            color={isPhoneInvalid ? "danger" : undefined}
+            errorMessage={isPhoneInvalid && "Le numéro de téléphone doit contenir 10 chiffres !"}
+            size="lg"
+          />
+        </div>
+
+        {/* Champ Description */}
+        <div className="flex flex-col gap-3 mb-6">
+        <Textarea
+            isRequired
+            label="Description"
+            labelPlacement="outside"
+            startContent={<i className="fa-solid fa-message text-2xl text-default-400 pointer-events-none flex-shrink-0"></i>}
+            placeholder="Votre message..."
+            className="w-full"
+            radius="lg"
+            size="lg"
+            value={description}
+            onValueChange={setDescription}
+            isInvalid={isDescriptionTooShort}
+            color={isDescriptionTooShort ? "danger" : undefined} 
+            errorMessage={
+              isDescriptionTooShort && `La description doit contenir au moins ${minDescriptionLength} caractères.`
+            }
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="self-center uppercase bg-cyan-600 text-white py-2 px-10 rounded-lg hover:bg-cyan-400 focus:outline-none focus:bg-indigo-600"
+        >
+          Envoyer
+        </button>
+      </form>
+    </div>
+  );
 }

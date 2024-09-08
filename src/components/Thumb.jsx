@@ -2,6 +2,21 @@ import React, { useState } from "react";
 import { useProjets } from "./GetProjet";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Skeleton } from "@nextui-org/react";
 
+import ridingCitiesIMG from "../assets/ridingcities.png"
+import bookieIMG from "../assets/booki.png"
+import ohMyFoodIMG from "../assets/ohmyfood.png"
+import printItIMG from "../assets/printit.png"
+import sophieBluelIMG from "../assets/sophiebluel.png"
+import kasaIMG from "../assets/kasa.png"
+const images = {
+  ridingcities: ridingCitiesIMG,
+  booki: bookieIMG,
+  ohmyfood: ohMyFoodIMG,
+  printit: printItIMG,
+  sophiebluel: sophieBluelIMG,
+  kasa: kasaIMG,
+};
+
 export default function Thumb() {
   const { projets } = useProjets();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -34,7 +49,7 @@ export default function Thumb() {
 
           {projet ? (
             projet.image ? (
-              <img className="h-full w-full object-cover rounded-xl" src={projet.image} alt="Image aperçu projet" />
+              <img className="h-full w-full object-cover rounded-xl" src={images[projet.image]} alt="Image aperçu projet" />
             ) : (
               <Skeleton className="h-full rounded-xl"></Skeleton>
             )
@@ -43,7 +58,7 @@ export default function Thumb() {
       ))}
 
       <Modal
-        className="bg-black border-4 border-primary shadow-2xl shadow-pink-800"
+        className="bg-black max-h-full border-4 border-primary shadow-2xl shadow-pink-800"
         backdrop="blur"
         isOpen={isOpen}
         onOpenChange={onOpenChange}
@@ -113,7 +128,7 @@ export default function Thumb() {
                 </div>
                 {selectedProjet ? (
                   selectedProjet.image ? (
-                    <img className="h-full md:w-1/2 object-cover rounded-xl" src={selectedProjet.image} alt="Image aperçu projet" />
+                    <img className="h-full md:w-1/2 object-cover rounded-xl" src={images[selectedProjet.image]} alt="Image aperçu projet" />
                   ) : (
                     <Skeleton className="h-64 md:w-1/2 rounded-xl"></Skeleton>
                   )
