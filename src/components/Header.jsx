@@ -18,7 +18,7 @@ export default function Header() {
   return (
     <>
       <header className="flex flex-col lg:flex-row lg:justify-around max-lg:gap-20 items-center p-7">
-        <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen}>
+        <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} className="bg-background">
           <NavbarContent>
             <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="sm:hidden" />
             <NavbarBrand>
@@ -38,26 +38,6 @@ export default function Header() {
                 </NavLink>
               </NavbarItem>
             ))}
-            {/* <NavbarItem>
-              <NavLink
-                to="/a-propos"
-                className={({ isActive }) =>
-                  isActive ? "bg-primary p-2 rounded-xl " : "hover:text-primary duration-500 cursor-pointer p-2"
-                }
-              >
-                À Propos
-              </NavLink>
-            </NavbarItem> */}
-            {/* <NavbarItem>
-              <NavLink
-                to="/contact"
-                className={({ isActive }) =>
-                  isActive ? "bg-primary p-2 rounded-xl " : "hover:text-primary duration-500 cursor-pointer p-2"
-                }
-              >
-                Contact
-              </NavLink>
-            </NavbarItem> */}
           </NavbarContent>
           {/* <NavbarContent justify="end">
             <NavbarItem className="hidden lg:flex">

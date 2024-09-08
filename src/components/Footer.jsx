@@ -1,4 +1,6 @@
 export default function Footer() {
+
+    
     return (
         <>
             <footer className="flex flex-col gap-5 px-10 md:px-20 py-5">
