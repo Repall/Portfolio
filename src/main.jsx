@@ -30,10 +30,10 @@ const router = createBrowserRouter([
                     </ProjetsProvider>
                 ),
             },
-            {
-                path: "contact",
-                element: <Contact />,
-            },
+            // {
+            //     path: "contact",
+            //     element: <Contact />,
+            // },
             {
                 path: "*",
                 element: <P404 />,
