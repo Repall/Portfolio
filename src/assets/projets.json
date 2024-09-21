@@ -76,7 +76,7 @@
         "image": "sophiebluel",
         "github": "https://github.com/Repall/OPC-Portfolio-Architecte-Sophie-Bluel",
         "description": "Récupérer et modifier (add / delete) des données depuis une API et les afficher",
-        "theme": "Créez une application web de location immobillière avec React",
+        "theme": "Créez une page web dynamique avec JavaScript",
         "techonologie": [
             "HTML",
             "CSS",
@@ -95,7 +95,7 @@
         "url": "https://opc-kasa.vercel.app",
         "github": "https://github.com/Repall/OPC-Kasa",
         "description": "Créer un site avec React et React Router et afficher des données depuis un JSON",
-        "theme": "Optimisez le référencement d'un site de photographe",
+        "theme": "Créez une application web de location immobillière avec React",
         "techonologie": [
             "HTML",
             "Tailwind CSS",
@@ -103,36 +103,41 @@
             "React Router"
         ],
         "responsive": true,
-        "category": "Test",
+        "category": "Formation",
         "state" : "OK"
     },
     {
         "id": "7",
         "number" : "7",
         "title": "Nina Carducci",
-        "image": "",
-        "url": "",
+        "image": "ninacarducci",
+        "url": "https://opc-nina-carducci.vercel.app/",
         "github": "https://github.com/Repall/OPC-Nina-Carducci",
         "description": "Optimiser le SEO d'un site",
         "theme": "Optimisez le référencement d'un site de photographe",
-        "techonologie": [],
+        "techonologie": [
+            "HTML",
+            "CSS",
+            "JavaScript",
+            "Lighthouse"
+        ],
         "responsive": true,
         "category": "Formation",
-        "state" : "PROGRESS"
+        "state" : "OK"
     },
     {
         "id": "8",
         "number" : "8",
-        "title": "",
+        "title": "724events",
         "image": "",
         "url": "",
         "github": "",
         "description": "",
-        "theme": "",
+        "theme": "Débuggez le site d'une agence d'événementiel",
         "techonologie": [],
         "responsive": "",
-        "category": "",
-        "state" : "NOT_STARTED"
+        "category": "Formation",
+        "state" : "PROGRESS"
     },
     {
         "id": "9",
