@@ -8,6 +8,7 @@ import ohMyFoodIMG from "../assets/ohmyfood.png"
 import printItIMG from "../assets/printit.png"
 import sophieBluelIMG from "../assets/sophiebluel.png"
 import kasaIMG from "../assets/kasa.png"
+import ninaCarducciIMG from "../assets/ninacarducci.png"
 const images = {
   ridingcities: ridingCitiesIMG,
   booki: bookieIMG,
@@ -15,6 +16,7 @@ const images = {
   printit: printItIMG,
   sophiebluel: sophieBluelIMG,
   kasa: kasaIMG,
+  ninacarducci: ninaCarducciIMG,
 };
 
 export default function Thumb() {
