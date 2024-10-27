@@ -129,29 +129,35 @@
         "id": "8",
         "number" : "8",
         "title": "724events",
-        "image": "",
-        "url": "",
-        "github": "",
-        "description": "",
+        "image": "events",
+        "url": "https://opc-724events.vercel.app/",
+        "github": "https://github.com/Repall/OPC-724events.git",
+        "description": "Chercher, trouver et corriger 6 bugs du site",
         "theme": "Débuggez le site d'une agence d'événementiel",
-        "techonologie": [],
-        "responsive": "",
+        "techonologie": [
+            "HTML",
+            "CSS / SCSS", 
+            "JavaScript",
+            "Yarn",
+            "CRA"
+        ],
+        "responsive": true,
         "category": "Formation",
-        "state" : "PROGRESS"
+        "state" : "OK"
     },
     {
         "id": "9",
         "number" : "9",
-        "title": "",
+        "title": "Argent Bank",
         "image": "",
         "url": "",
         "github": "",
         "description": "",
-        "theme": "",
+        "theme": "Implémentez le front-end d'une application bancaire avec React",
         "techonologie": [],
         "responsive": "",
         "category": "",
-        "state" : "NOT_STARTED"
+        "state" : "PROGRESS"
     },
     {
         "id": "10",
