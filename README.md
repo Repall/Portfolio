@@ -15,3 +15,4 @@ https://repall.fr
 - Vite, 
 - React Router,
 - Tailwind.
+- NextUi

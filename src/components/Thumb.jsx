@@ -9,6 +9,7 @@ import printItIMG from "../assets/printit.png"
 import sophieBluelIMG from "../assets/sophiebluel.png"
 import kasaIMG from "../assets/kasa.png"
 import ninaCarducciIMG from "../assets/ninacarducci.png"
+import eventsIMG from "../assets/events.png"
 const images = {
   ridingcities: ridingCitiesIMG,
   booki: bookieIMG,
@@ -17,6 +18,7 @@ const images = {
   sophiebluel: sophieBluelIMG,
   kasa: kasaIMG,
   ninacarducci: ninaCarducciIMG,
+  events: eventsIMG,
 };
 
 export default function Thumb() {
