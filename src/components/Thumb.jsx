@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useProjets } from "./GetProjet";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Skeleton } from "@nextui-org/react";
 
@@ -10,6 +10,7 @@ import sophieBluelIMG from "../assets/sophiebluel.png"
 import kasaIMG from "../assets/kasa.png"
 import ninaCarducciIMG from "../assets/ninacarducci.png"
 import eventsIMG from "../assets/events.png"
+import argentBankIMG from "../assets/argentbank.png"
 const images = {
   ridingcities: ridingCitiesIMG,
   booki: bookieIMG,
@@ -19,6 +20,7 @@ const images = {
   kasa: kasaIMG,
   ninacarducci: ninaCarducciIMG,
   events: eventsIMG,
+  argentbank: argentBankIMG,
 };
 
 export default function Thumb() {
@@ -142,7 +144,7 @@ export default function Thumb() {
                 {selectedProjet ? (
                   selectedProjet.github ? (
                     <Button color="primary" variant="shadow" onClick={() => window.open(selectedProjet.github, "_blank")}>
-                      Voir le dépôt <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                      Voir le dépôt <i className="fa-solid fa-arrow-up-right-from-square"></i>
                     </Button>
                   ) : (
                     <Button color="default" isDisabled className="cursor-default">
@@ -168,7 +170,7 @@ export default function Thumb() {
                 {selectedProjet ? (
                   selectedProjet.url ? (
                     <Button color="primary" variant="shadow" onClick={() => window.open(`${selectedProjet.url}`, "_blank")}>
-                      Voir le projet <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                      Voir le projet <i className="fa-solid fa-arrow-up-right-from-square"></i>
                     </Button>
                   ) : (
                     <Button color="default" isDisabled className="cursor-default">
