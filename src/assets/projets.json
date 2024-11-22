@@ -149,13 +149,18 @@
         "id": "9",
         "number" : "9",
         "title": "Argent Bank",
-        "image": "",
+        "image": "argentbank",
         "url": "",
-        "github": "",
-        "description": "",
+        "github": "https://github.com/Repall/OPC-Argent-Bank.git",
+        "description": "Utilisez une API pour un compte utilisateur bancaire avec React",
         "theme": "Implémentez le front-end d'une application bancaire avec React",
-        "techonologie": [],
-        "responsive": "",
+        "techonologie": [
+            "React",
+            "Redux",
+            "TypeScript",
+            "Tailwind CSS"
+        ],
+        "responsive": true,
         "category": "Formation",
         "state" : "PROGRESS"
     },

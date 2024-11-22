@@ -10,7 +10,7 @@ import App from "./App.jsx";
 import Home from "./pages/Home";
 import P404 from "./pages/P404";
 import ListProjets from "./pages/ListProjets";
-import Contact from "./pages/Contact.jsx";
+// import Contact from "./pages/Contact.jsx";
 
 import { ProjetsProvider } from "./components/GetProjet";
 
