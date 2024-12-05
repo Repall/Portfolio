@@ -1,9 +1,8 @@
-import React from "react";
-import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
+// import { useDisclosure } from "@nextui-org/react";
 
 
 export default function Home() {
-    const { isOpen, onOpen, onOpenChange } = useDisclosure();
+    // const { isOpen, onOpen, onOpenChange } = useDisclosure();
     return (
         <>
             <div className="flex flex-col gap-28 py-20">

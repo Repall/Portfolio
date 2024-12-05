@@ -1,10 +1,10 @@
 import React from "react";
-import { NavLink, Navigate } from "react-router-dom";
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Switch } from "@nextui-org/react";
+import { NavLink } from "react-router-dom";
+import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, } from "@nextui-org/react";
 // import MoonIcon from "../assets/moonicon.svg";
 // import SunIcon from "../assets/sunicon.svg";
-import { MoonIcon } from "./MoonIcon";
-import { SunIcon } from "./SunIcon";
+// import { MoonIcon } from "./MoonIcon";
+// import { SunIcon } from "./SunIcon";
 
 import routerData from "../assets/router.json";
 
@@ -46,7 +46,7 @@ export default function Header() {
           </NavbarContent> */}
           <NavbarMenu className="flex flex-col items-center pt-20 gap-8 w-full font-bold">
             {routerData.map((item) => (
-              <NavbarMenuItem key={item}>
+              <NavbarMenuItem key={item.id}>
                 <NavLink
                   to={item.route}
                   className={({ isActive }) => (isActive ? "text-primary" : "")}
