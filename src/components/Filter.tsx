@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function Filter({ categories, selectedCategory, onCategorySelect }) {
     // Filtrer les catégories pour éviter les doublons (bien que l'on ait déjà utilisé Set)
     const uniqueCategories = [...new Set(categories)];

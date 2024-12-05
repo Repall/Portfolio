@@ -1,34 +1,14 @@
 import { useState } from "react";
-import { useProjets } from "./GetProjet";
+import { useProjets } from "./GetProjets";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Skeleton } from "@nextui-org/react";
-
-import ridingCitiesIMG from "../assets/ridingcities.png"
-import bookieIMG from "../assets/booki.png"
-import ohMyFoodIMG from "../assets/ohmyfood.png"
-import printItIMG from "../assets/printit.png"
-import sophieBluelIMG from "../assets/sophiebluel.png"
-import kasaIMG from "../assets/kasa.png"
-import ninaCarducciIMG from "../assets/ninacarducci.png"
-import eventsIMG from "../assets/events.png"
-import argentBankIMG from "../assets/argentbank.png"
-const images = {
-  ridingcities: ridingCitiesIMG,
-  booki: bookieIMG,
-  ohmyfood: ohMyFoodIMG,
-  printit: printItIMG,
-  sophiebluel: sophieBluelIMG,
-  kasa: kasaIMG,
-  ninacarducci: ninaCarducciIMG,
-  events: eventsIMG,
-  argentbank: argentBankIMG,
-};
+import Projet from "../data/Types";
 
 export default function Thumb() {
   const { projets } = useProjets();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
-  const [selectedProjet, setSelectedProjet] = useState(null);
+  const [selectedProjet, setSelectedProjet] = useState<Projet | null>(null);
 
-  const handleOpenModal = (projet) => {
+  const handleOpenModal = (projet: Projet) : void => {
     setSelectedProjet(projet);
     onOpen();
   };
@@ -55,7 +35,7 @@ export default function Thumb() {
 
           {projet ? (
             projet.image ? (
-              <img className="h-full w-full object-cover rounded-xl" src={images[projet.image]} alt="Image aperçu projet" />
+              <img className="h-full w-full object-cover rounded-xl" src={projet.image} alt="Image aperçu projet" />
             ) : (
               <Skeleton className="h-full rounded-xl"></Skeleton>
             )
@@ -64,32 +44,37 @@ export default function Thumb() {
       ))}
 
       <Modal
-        className="bg-black max-h-full border-4 border-primary shadow-2xl shadow-pink-800"
+        className="bg-black  border-4 border-primary shadow-2xl shadow-pink-800"
         backdrop="blur"
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         size="5xl"
         placement="center"
+        scrollBehavior="inside"
       >
-        <ModalContent>
-          {(onClose) => (
+        <ModalContent className="max-sm:h-4/5">
+          {() => (
             <>
               <ModalHeader className="flex flex-col justify-center text-center text-2xl md:text-4xl">
-                <p>{selectedProjet.title}</p>
-                <p className="text-lg font-normal flex flex-col sm:flex-row  justify-center items-center gap-4">
-                  {selectedProjet.theme}
-                  {selectedProjet ? (
-                    selectedProjet.responsive === true ? (
-                      <Button color="success" variant="shadow" className="cursor-default">
-                        Responsive
-                      </Button>
-                    ) : selectedProjet.responsive === false ? (
-                      <Button color="danger" variant="shadow" className="cursor-default">
-                        Non responsive
-                      </Button>
-                    ) : null
-                  ) : null}
-                </p>
+                {selectedProjet ? (
+                  <>
+                    <p>{selectedProjet.title}</p>
+                    <p className="text-lg font-normal flex flex-col sm:flex-row justify-center items-center gap-4">
+                      {selectedProjet.theme}
+                      {selectedProjet.responsive ? (
+                        <Button color="success" variant="shadow" className="cursor-default">
+                          Responsive
+                        </Button>
+                      ) : (
+                        <Button color="danger" variant="shadow" className="cursor-default">
+                          Non responsive
+                        </Button>
+                      )}
+                    </p>
+                  </>
+                ) : (
+                  <p>Aucun projet sélectionné.</p> // Optionnel : message si selectedProjet est null
+                )}
               </ModalHeader>
               <ModalBody className="flex flex-col-reverse md:flex-row-reverse">
                 <div className="flex flex-col justify-evenly md:w-1/2 max-sm:pt-6 max-md:mt-6 max-md:gap-10 max-sm:border-t-8 sm:border-x-8 sm:rounded-full md:px-7 text-center items-center ">
@@ -107,25 +92,20 @@ export default function Thumb() {
 
                   <div>
                     {selectedProjet ? (
-                      selectedProjet.techonologie.length > 0 ? (
+                      selectedProjet.technologie && selectedProjet.technologie.length > 0 ? (
                         <>
                           <p className="underline">Technologies utilisées :</p>
                           <div className="flex flex-row flex-wrap justify-center gap-2 pt-3">
-                            {Array.isArray(selectedProjet.techonologie)
-                              ? selectedProjet.techonologie.map((item, index) => {
-                                  return (
-                                    <Button
-                                      key={index}
-                                      radius="full"
-                                      className="bg-gradient-to-tr from-pink-500 to-yellow-500
-                                            text-white"
-                                      variant="shadow"
-                                    >
-                                      {item}
-                                    </Button>
-                                  );
-                                })
-                              : null}
+                            {selectedProjet.technologie.map((item, index) => (
+                              <Button
+                                key={index}
+                                radius="full"
+                                className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white"
+                                variant="shadow"
+                              >
+                                {item}
+                              </Button>
+                            ))}
                           </div>
                         </>
                       ) : null
@@ -134,7 +114,7 @@ export default function Thumb() {
                 </div>
                 {selectedProjet ? (
                   selectedProjet.image ? (
-                    <img className="h-full md:w-1/2 object-cover rounded-xl" src={images[selectedProjet.image]} alt="Image aperçu projet" />
+                    <img className="h-full md:w-1/2 object-cover rounded-xl" src={selectedProjet.image} alt="Image aperçu projet" />
                   ) : (
                     <Skeleton className="h-64 md:w-1/2 rounded-xl"></Skeleton>
                   )
@@ -143,7 +123,17 @@ export default function Thumb() {
               <ModalFooter className="flex flex-col md:flex-row justify-evenly">
                 {selectedProjet ? (
                   selectedProjet.github ? (
-                    <Button color="primary" variant="shadow" onClick={() => window.open(selectedProjet.github, "_blank")}>
+                    <Button
+                      color="primary"
+                      variant="shadow"
+                      onClick={() => {
+                        if (selectedProjet?.github) {
+                          window.open(selectedProjet.github, "_blank");
+                        } else {
+                          console.warn("Le lien GitHub n'est pas disponible.");
+                        }
+                      }}
+                    >
                       Voir le dépôt <i className="fa-solid fa-arrow-up-right-from-square"></i>
                     </Button>
                   ) : (
