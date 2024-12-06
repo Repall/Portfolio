@@ -1,10 +1,10 @@
 export default function Footer() {
   return (
     <>
-      <footer className="flex flex-col gap-5 px-10 md:px-20 py-5">
-        <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-5 lg:gap-32 xl:gap-56 p-5 2xl:gap-80 md:h-full border-solid border-2 border-cyan-600 rounded-3xl shadow-md shadow-white ">
+      <footer className="flex flex-col gap-5 px-10 md:px-20 py-5 text-white">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-5 lg:gap-32 xl:gap-56 p-5 2xl:gap-80 md:h-full border-solid border-4 border-primary rounded-3xl shadow-md shadow-white ">
           <div>
-            <p className="text-cyan-600 text-5xl font-bold">Contact</p>
+            <p className="text-primary text-5xl font-bold">Contact</p>
           </div>
           {/* <div className="flex flex-col gap-2">
                       <div className="flex flex-row gap-1">
@@ -36,7 +36,7 @@ export default function Footer() {
           </p>
           <p className="text-sm mx-auto font-bold">
             &copy; 2024
-            <span className="text-cyan-600"> Repall </span>
+            <span className="text-primary"> Repall </span>
             <br />
             Tous droits réservés.
           </p>

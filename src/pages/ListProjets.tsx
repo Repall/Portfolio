@@ -28,7 +28,7 @@ export default function ListProjets() {
     return (
         <>
             <div className="py-20">
-                <div className="flex flex-col gap-28 text-center text-5xl text-primary-500 font-bold items-center pb-10 border-b-4 border-white">
+                <div className="flex flex-col gap-28 text-center text-5xl text-primary font-bold items-center pb-10 border-b-4 border-white">
                     <h1>Liste des projets</h1>
                 </div>
                 {/* <Filter categories={categories} selectedCategory={selectedCategory} onCategorySelect={setSelectedCategory} /> */}

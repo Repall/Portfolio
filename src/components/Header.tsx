@@ -17,12 +17,12 @@ export default function Header() {
 
   return (
     <>
-      <header className="flex flex-col lg:flex-row lg:justify-around max-lg:gap-20 items-center p-7">
-        <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} className="bg-background">
+      <header className="text-black flex flex-col lg:flex-row lg:justify-around max-lg:gap-20 items-center p-7">
+        <Navbar isMenuOpen={isMenuOpen} onMenuOpenChange={setIsMenuOpen} className="bg-white">
           <NavbarContent>
             <NavbarMenuToggle aria-label={isMenuOpen ? "Close menu" : "Open menu"} className="sm:hidden" />
             <NavbarBrand>
-              <p className="font-bold text-inherit text-3xl uppercase">Repall.fr</p>
+              <NavLink to="/" className={"font-bold text-inherit text-3xl uppercase"}>Repall.fr</NavLink>
             </NavbarBrand>
           </NavbarContent>
           <NavbarContent className="hidden sm:flex gap-4" justify="center">
