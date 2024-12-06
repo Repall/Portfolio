@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { useProjets } from "./GetProjets";
+import projetData from "../data/ProjetsData";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Skeleton } from "@nextui-org/react";
-import Projet from "../data/Types";
+import { Projet } from "../data/Types";
 
 export default function Thumb() {
-  const { projets } = useProjets();
+  // const { projets } = projetData();
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [selectedProjet, setSelectedProjet] = useState<Projet | null>(null);
 
@@ -15,15 +15,15 @@ export default function Thumb() {
 
   return (
     <>
-      {projets.map((projet) => (
+      {projetData.map((projet) => (
         <div
           key={projet.id}
           onClick={() => handleOpenModal(projet)}
-          className="flex flex-col-reverse w-[335px] h-[255px] max-sm:w-64 rounded-xl transition duration-700 hover:scale-105 cursor-pointer"
+          className="flex flex-col-reverse w-[335px] h-[255px] text-black max-sm:w-64 rounded-xl transition duration-700 hover:scale-105 cursor-pointer"
         >
           {projet ? (
             projet.title ? (
-              <p className="z-10 absolute bg-primary-300 text-lg font-bold rounded-b-xl w-[335px] max-sm:w-64 px-5 py-2">
+              <p className="z-10 absolute bg-primary text-lg font-bold rounded-b-xl w-[335px] max-sm:w-64 px-5 py-2">
                 Projet {projet.number} | {projet.title}
               </p>
             ) : (
@@ -134,7 +134,7 @@ export default function Thumb() {
                         }
                       }}
                     >
-                      Voir le dépôt <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                      Dépôt <i className="fa-solid fa-arrow-up-right-from-square"></i>
                     </Button>
                   ) : (
                     <Button color="default" isDisabled className="cursor-default">
@@ -160,11 +160,11 @@ export default function Thumb() {
                 {selectedProjet ? (
                   selectedProjet.url ? (
                     <Button color="primary" variant="shadow" onClick={() => window.open(`${selectedProjet.url}`, "_blank")}>
-                      Voir le projet <i className="fa-solid fa-arrow-up-right-from-square"></i>
+                      Site <i className="fa-solid fa-arrow-up-right-from-square"></i>
                     </Button>
                   ) : (
                     <Button color="default" isDisabled className="cursor-default">
-                      Projet non disponible
+                      Site non disponible
                     </Button>
                   )
                 ) : null}

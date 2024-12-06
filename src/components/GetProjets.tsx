@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import projetsData from '../data/ProjetsData'; // Import des données
-import Projet from "../data/Types"
+import { Projet } from "../data/Types"
 
 interface ProjetsContextType {
     projets: Projet[];

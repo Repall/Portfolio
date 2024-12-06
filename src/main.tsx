@@ -16,12 +16,12 @@ import { ProjetsProvider } from "./components/GetProjets.tsx";
 
 const router = createBrowserRouter([
   {
+    path: "/",
+    element: <Home />,
+  },
+  {
     element: <App />,
     children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
       {
         path: "projets",
         element: (
