@@ -17,7 +17,7 @@ export default function Stack() {
           )}
         </div>
       </article>
-      <article className="flex flex-col justify-center items-center p-10 border-8 border-dotted border-secondary rounded-full m-12">
+      <article className="flex flex-col justify-center max-[374px]:items-center p-10 border-8 border-dotted border-secondary rounded-full m-12">
         <h3 className="text-center text-4xl sm:text-5xl">Objectifs</h3>
         <div className="flex flex-row flex-wrap justify-evenly gap-4 mt-10">
           {stackData.map((category, index) =>
