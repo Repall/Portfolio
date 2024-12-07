@@ -8,7 +8,7 @@ export default function Home() {
   // const { isOpen, onOpen, onOpenChange } = useDisclosure();
   return (
     <>
-      <div className="relative h-screen bg-gradient-to-b to-gradient-1 via-gradient-3 from-gradient-6 animate-wave bg-[length:200%_200%]">
+      <div className="relative h-screen bg-gradient-to-b to-gradient-1 via-gradient-3 from-gradient-6 animate-wave bg-[length:200%_200%] pt-48 py-14">
         <Header />
         <svg
           className="waves"
@@ -28,10 +28,12 @@ export default function Home() {
             <use xlinkHref="#gentle-wave" x="48" y="7" fill="#19305C" />
           </g>
         </svg>
-        <section className="bg-background flex flex-col md:flex-row justify-evenly max-lg:items-center max-md:gap-10 max-lg:gap-16 px-10 py-10 md:py-20 mx-5 md:mx-14 lg:mx-32 my-14 rounded-[6rem] shadow-xl outline outline-8 outline-white shadow-white">
+        <section className="bg-background flex flex-col md:flex-row justify-evenly max-lg:items-center max-md:gap-10 max-lg:gap-16 px-10 py-10 md:py-20 mx-5 md:mx-14 lg:mx-32  rounded-[6rem] shadow-xl outline outline-8 outline-white shadow-white">
           <div className="space-y-5 md:space-y-10">
             <h1 className="text-primary flex justify-center font-bold text-4xl sm:text-5xl lg:text-7xl xl:text-8xl">Repall</h1>
-            <p className="flex justify-center font-bold text-2xl sm:text-3xl lg:text-5xl xl:text-6xl flex-wrap">Developpeur&nbsp;<span className="text-primary">Web</span></p>
+            <p className="flex justify-center font-bold text-2xl sm:text-3xl lg:text-5xl xl:text-6xl flex-wrap">
+              Developpeur&nbsp;<span className="text-primary">Web</span>
+            </p>
             <p className="text-xl">Spécialisé dans le développement web Front-End</p>
           </div>
           <img
