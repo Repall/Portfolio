@@ -100,7 +100,7 @@ export default function Thumb() {
                               <Button
                                 key={index}
                                 radius="full"
-                                className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white"
+                                className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white cursor-default"
                                 variant="shadow"
                               >
                                 {item}

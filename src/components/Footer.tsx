@@ -3,8 +3,9 @@ export default function Footer() {
     <>
       <footer className="flex flex-col gap-5 px-10 md:px-20 py-5 text-white">
         <div className="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-5 lg:gap-32 xl:gap-56 p-5 2xl:gap-80 md:h-full border-solid border-4 border-primary rounded-3xl shadow-md shadow-white ">
-          <div>
-            <p className="text-primary text-5xl font-bold">Contact</p>
+          <div className="flex flex-col items-center gap-4">
+            <h2 className="text-primary text-5xl font-bold">Contact</h2>
+            <p className="text-center"><span className="underline">Toulouse</span> | <span className="underline">Haute-Garonne</span> | <span className="underline">Occitanie</span></p>
           </div>
           {/* <div className="flex flex-col gap-2">
                       <div className="flex flex-row gap-1">
@@ -20,23 +21,23 @@ export default function Footer() {
                           </a>
                       </div>
                   </div> */}
-          <div className="flex flex-row gap-4">
+          <div className="flex flex-row gap-6">
             <a href="https://github.com/Repall" aria-label="Mon GitHub">
               <i className="fa-brands fa-github text-5xl"></i>
             </a>
-            {/* <a href="www.linkedin.com/in/corentin-c-361b0421a">
-                          <i className="fa-brands fa-linkedin text-5xl"></i>
-                      </a> */}
+            <a href="www.linkedin.com/in/corentin-caillaud/">
+              <i className="fa-brands fa-linkedin text-5xl"></i>
+            </a>
           </div>
         </div>
         <div className="flex justify-between text-center mt-5 flex-col gap-5 w-fit mx-auto">
           <p>Ce site a été réalisé à la main et ne collecte aucune donnée. Merci de votre visite !</p>
           <p>
-            Fais avec <i className="fa-solid fa-heart text-red-700"></i> et passion par Repall
+            Fait avec <i className="fa-solid fa-heart text-red-700"></i> et passion par Corentin
           </p>
           <p className="text-sm mx-auto font-bold">
             &copy; 2024
-            <span className="text-primary"> Repall </span>
+            <span className="text-primary"> Corentin </span>
             <br />
             Tous droits réservés.
           </p>

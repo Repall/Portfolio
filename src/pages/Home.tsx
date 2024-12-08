@@ -7,7 +7,7 @@ import Stack from "../components/Stack";
 export default function Home() {
   const words: string[] = ["Web", "React", "TypeScript", "Tailwind"];
   const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
-  const [isFading, setIsFading] = useState(false); 
+  const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -44,16 +44,21 @@ export default function Home() {
         </svg>
         <section className="bg-background flex flex-col md:flex-row justify-evenly items-center max-lg:items-center max-md:gap-10 max-lg:gap-16 px-10 py-10 md:py-20 mx-5 md:mx-14 lg:mx-32  rounded-[6rem] shadow-xl outline outline-8 outline-white shadow-white">
           <div className="space-y-5 md:space-y-20">
-            <h1 className="text-primary flex justify-center font-bold text-4xl sm:text-5xl lg:text-7xl xl:text-8xl">Repall</h1>
-            <p className="flex justify-center font-bold text-2xl sm:text-3xl lg:text-5xl xl:text-6xl flex-wrap">
+            <h1 className="text-primary flex justify-center font-bold text-4xl sm:text-5xl lg:text-7xl xl:text-8xl">Corentin Caillaud</h1>
+            <h2 className="flex justify-center font-bold text-2xl sm:text-3xl lg:text-5xl xl:text-6xl flex-wrap">
               Développeur&nbsp;
-              <span className={`text-primary animate-bounce transition-opacity duration-500 ease-in-out ${isFading ? "opacity-0" : "opacity-100"}`}>
+              <span
+                className={`text-primary animate-bounce transition-opacity duration-500 ease-in-out ${
+                  isFading ? "opacity-0" : "opacity-100"
+                }`}
+              >
                 {words[currentWordIndex]}
               </span>
-            </p>
-            <p className="sm:text-xl">
-              Spécialisé dans le développement web Front-End, je réalise des interfaces utilisateur modernes, intuitives et performantes.
-            </p>
+            </h2>
+            <div className="space-y-6">
+              <p className="sm:text-xl">Spécialisé dans le développement web Front-End, basé sur Toulouse et sa région.</p>
+              <p className="sm:text-xl">Je réalise des interfaces utilisateur modernes, intuitives et performantes.</p>
+            </div>
           </div>
           <img
             alt="Repall"
@@ -61,7 +66,7 @@ export default function Home() {
             width="575"
             height="575"
             className="rounded-full w-40 h-40 md:w-64 md:h-64 xl:w-96 xl:h-96"
-            src="/img/repallpp.jpg"
+            src="/img/corentinpp.jpg"
           />
         </section>
       </div>
