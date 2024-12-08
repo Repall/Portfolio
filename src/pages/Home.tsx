@@ -57,7 +57,7 @@ export default function Home() {
             </h2>
             <div className="space-y-6">
               <p className="sm:text-xl">Spécialisé dans le développement web Front-End, basé sur Toulouse et sa région.</p>
-              <p className="sm:text-xl">Je réalise des interfaces utilisateur modernes, intuitives et performantes.</p>
+              <p className="sm:text-xl">Je réalise des interfaces utilisateurs modernes, intuitives et performantes.</p>
             </div>
           </div>
           <img
