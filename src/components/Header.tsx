@@ -22,18 +22,18 @@ export default function Header() {
     <>
       <header>
         <nav
-          className={`transition-all duration-300 ease-in-out fixed top-0 left-1/2 transform -translate-x-1/2 z-40 text-black bg-white flex flex-row justify-around max-lg:gap-12 items-center p-7 ${
-            isScrolled ? "mt-7 w-5/6 rounded-full shadow-lg" : "w-full rounded-b-full"
+          className={`transition-all duration-300 ease-in-out fixed top-0 left-1/2 transform -translate-x-1/2 z-40 text-black bg-white flex flex-row justify-around max-lg:gap-8 items-center px-7 ${
+            isScrolled ? "mt-7 w-5/6 rounded-full shadow-lg py-4" : "w-full rounded-b-full py-7"
           }`}
         >
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="sm:hidden text-3xl focus:outline-none">
             ☰
           </button>
-          <NavLink to="/" className="font-bold text-inherit text-3xl uppercase">
+          <NavLink to="/" className="font-bold text-inherit text-2xl lg:text-3xl uppercase">
             Corentindev.fr
           </NavLink>
           {/* Desktop */}
-          <div className="hidden sm:flex text-xl space-x-6 font-bold">
+          <div className="hidden sm:flex text-xl spa lg:space-x-6 font-bold">
             {routerData.map((item) => (
               <NavLink
                 key={item.route}
