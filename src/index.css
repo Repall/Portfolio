@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  cursor: default;
-}
-
 .waves {
   position: absolute; /* Positionne les vagues en bas de la section */
   bottom: 0;

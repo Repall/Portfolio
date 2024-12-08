@@ -30,7 +30,7 @@ export default function Header() {
             ☰
           </button>
           <NavLink to="/" className="font-bold text-inherit text-3xl uppercase">
-            Repall.fr
+            Corentindev.fr
           </NavLink>
           {/* Desktop */}
           <div className="hidden sm:flex text-xl space-x-6 font-bold">
