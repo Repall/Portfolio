@@ -28,7 +28,7 @@ export default function Footer() {
             <a href="https://github.com/Repall" aria-label="Mon GitHub">
               <i className="fa-brands fa-github text-5xl"></i>
             </a>
-            <a href="www.linkedin.com/in/corentin-caillaud/">
+            <a href="https://linkedin.com/in/corentin-caillaud/">
               <i className="fa-brands fa-linkedin text-5xl"></i>
             </a>
           </div>
