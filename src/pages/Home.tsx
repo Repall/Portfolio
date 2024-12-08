@@ -22,7 +22,7 @@ export default function Home() {
   }, [words.length]);
   return (
     <>
-      <div className="relative h-screen bg-gradient-to-b to-gradient-1 via-gradient-3 from-gradient-6 animate-wave bg-[length:200%_200%] pt-48 py-14">
+      <div className="relative min-h-[860px] h-screen bg-gradient-to-b to-gradient-1 via-gradient-3 from-gradient-6 animate-wave bg-[length:200%_200%] pt-32 sm:pt-40 py-14">
         <Header />
         <svg
           className="waves"
@@ -43,9 +43,9 @@ export default function Home() {
           </g>
         </svg>
         <section className="bg-background flex flex-col md:flex-row justify-evenly items-center max-lg:items-center max-md:gap-10 max-lg:gap-16 px-10 py-10 md:py-20 mx-5 md:mx-14 lg:mx-32  rounded-[6rem] shadow-xl outline outline-8 outline-white shadow-white">
-          <div className="space-y-5 md:space-y-20">
-            <h1 className="text-primary flex justify-center font-bold text-4xl sm:text-5xl lg:text-7xl xl:text-8xl">Corentin Caillaud</h1>
-            <h2 className="flex justify-center font-bold text-2xl sm:text-3xl lg:text-5xl xl:text-6xl flex-wrap">
+          <div className="space-y-5 sm:space-y-10 lg:space-y-15">
+            <h1 className="text-primary text-center flex justify-center font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">Corentin CAILLAUD</h1>
+            <h2 className="flex justify-center font-bold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl flex-wrap">
               Développeur&nbsp;
               <span
                 className={`text-primary animate-bounce transition-opacity duration-500 ease-in-out ${
@@ -56,8 +56,8 @@ export default function Home() {
               </span>
             </h2>
             <div className="space-y-6">
-              <p className="sm:text-xl">Spécialisé dans le développement web Front-End, basé sur Toulouse et sa région.</p>
-              <p className="sm:text-xl">Je réalise des interfaces utilisateurs modernes, intuitives et performantes.</p>
+              <p className="lg:text-xl">Spécialisé dans le développement web Front-End, basé sur Toulouse et sa région.</p>
+              <p className="lg:text-xl">Je réalise des interfaces utilisateurs modernes, intuitives et performantes.</p>
             </div>
           </div>
           <img
