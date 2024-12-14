@@ -114,7 +114,7 @@ export default function Thumb() {
                 </div>
                 {selectedProjet ? (
                   selectedProjet.image ? (
-                    <img className="h-full md:w-1/2 object-cover rounded-xl" src={selectedProjet.image} alt="Image aperçu projet" />
+                    <img className="h-full md:w-1/2 object-cover rounded-xl" src={selectedProjet.image} loading="lazy" alt="Image aperçu projet" />
                   ) : (
                     <Skeleton className="h-64 md:w-1/2 rounded-xl"></Skeleton>
                   )

@@ -6,7 +6,7 @@ export default function Footer() {
           <div className="flex flex-col items-center gap-4">
             <h2 className="text-primary text-5xl font-bold">Contact</h2>
             <p className="text-center">
-              <span className="underline">Toulouse</span> | <span className="underline">Haute-Garonne</span> |
+              <span className="underline">Toulouse</span>&nbsp;|&nbsp;<span className="underline">Haute-Garonne</span>&nbsp;|&nbsp;
               <span className="underline">Occitanie</span>
             </p>
           </div>
@@ -28,7 +28,7 @@ export default function Footer() {
             <a href="https://github.com/Repall" aria-label="Mon GitHub">
               <i className="fa-brands fa-github text-5xl"></i>
             </a>
-            <a href="https://linkedin.com/in/corentin-caillaud/">
+            <a href="https://linkedin.com/in/corentin-caillaud/" aria-label="Mon Linkedin">
               <i className="fa-brands fa-linkedin text-5xl"></i>
             </a>
           </div>
