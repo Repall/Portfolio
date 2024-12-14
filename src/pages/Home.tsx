@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Stack from "../components/Stack";
 
+
 export default function Home() {
   const words: string[] = ["Web", "React", "TypeScript", "Tailwind"];
   const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
@@ -67,15 +68,17 @@ export default function Home() {
             height="575"
             className="rounded-full w-40 h-40 md:w-64 md:h-64 xl:w-96 xl:h-96"
             src="/img/corentinpp.jpg"
+            loading="eager"
           />
         </section>
       </div>
       {/* <section>
         <h2 className="text-primary text-center text-5xl font-bold">Pésentation</h2>
         <p className="text-center">Développeur junior, je cherche à apprendre tous les jours et à me perfectionner dans le domaine pour proposer une expérience utilisateur de mieux en mieux chaque jours</p>
-      </section>
-      <section>
+      </section> */}
+      {/* <section>
         <h2 className="text-primary text-center text-5xl font-bold">Mes projets</h2>
+        
       </section> */}
       <section>
         <h2 className="text-primary text-center text-5xl font-bold">Ma Stack</h2>

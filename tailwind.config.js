@@ -23,6 +23,15 @@ export default {
           6: "#F1916D",
         }
       },
+      animation: {
+        scroll: 'scroll 5s linear infinite',
+      },
+      keyframes: {
+        scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
     },
   },
   plugins: [
