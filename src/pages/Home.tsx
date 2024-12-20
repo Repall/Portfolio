@@ -4,7 +4,6 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Stack from "../components/Stack";
 
-
 export default function Home() {
   const words: string[] = ["Web", "React", "TypeScript", "Tailwind"];
   const [currentWordIndex, setCurrentWordIndex] = useState<number>(0);
@@ -45,7 +44,9 @@ export default function Home() {
         </svg>
         <section className="bg-background flex flex-col md:flex-row justify-evenly items-center max-lg:items-center max-md:gap-10 max-lg:gap-16 px-10 py-10 md:py-20 mx-5 md:mx-14 lg:mx-32  rounded-[6rem] shadow-xl outline outline-8 outline-white shadow-white">
           <div className="space-y-5 sm:space-y-10 lg:space-y-15">
-            <h1 className="text-primary text-center flex justify-center font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">Corentin CAILLAUD</h1>
+            <h1 className="text-primary text-center flex justify-center font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">
+              Corentin CAILLAUD
+            </h1>
             <h2 className="flex justify-center font-bold text-2xl sm:text-3xl lg:text-4xl xl:text-5xl flex-wrap">
               Développeur&nbsp;
               <span
@@ -80,6 +81,15 @@ export default function Home() {
         <h2 className="text-primary text-center text-5xl font-bold">Mes projets</h2>
         
       </section> */}
+      <section>
+        <h2 className="text-primary text-center text-5xl font-bold">Mes formations</h2>
+        <div className="flex flex-row justify-center m-4">
+          <div className="text-center bg-white text-black p-6 rounded-3xl">
+            <h3>OpenClassRoom</h3>
+            <p>2024</p>
+          </div>
+        </div>
+      </section>
       <section>
         <h2 className="text-primary text-center text-5xl font-bold">Ma Stack</h2>
         <Stack />
