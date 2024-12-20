@@ -12,7 +12,6 @@ import P404 from "./pages/P404.tsx";
 import ListProjets from "./pages/ListProjets.tsx";
 // import Contact from "./pages/Contact.jsx";
 
-import { ProjetsProvider } from "./components/GetProjets.tsx";
 
 const router = createBrowserRouter([
   {
@@ -25,9 +24,7 @@ const router = createBrowserRouter([
       {
         path: "projets",
         element: (
-          <ProjetsProvider>
             <ListProjets />
-          </ProjetsProvider>
         ),
       },
       // {

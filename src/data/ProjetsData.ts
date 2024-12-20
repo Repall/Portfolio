@@ -182,7 +182,7 @@ const projetsData: Projet[] = [
         ],
         responsive: null,
         category: "Formation",
-        state : "PROGRESS"
+        state : "OK"
     },
     {
         id: 11,
@@ -202,7 +202,7 @@ const projetsData: Projet[] = [
         ],
         responsive: true,
         category: "Formation",
-        state : "PROGRESS"
+        state : "OK"
     }
 ];
 
